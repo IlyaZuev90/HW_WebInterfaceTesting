@@ -32,13 +32,28 @@ public class CardFormTest {
     }
 
     @Test
-    public void shouldSubmittingForm(){
-        driver.findElement(By.cssSelector("[data-test-id='name'] input")).sendKeys("Иванов Иван");
-        driver.findElement(By.cssSelector("[data-test-id='phone'] input")).sendKeys("+79990000000");
+    public void shouldSubmitForm() throws InterruptedException {
+        driver.findElement(By.cssSelector("[data-test-id='name'] input")).sendKeys("Пушкин Александр");
+//        try {
+//            Thread.sleep(2000);
+//        } catch(InterruptedException ex) {}
+        driver.findElement(By.cssSelector("[data-test-id='phone'] input")).sendKeys("+79270000000");
+//        try {
+//            Thread.sleep(2000);
+//        } catch(InterruptedException ex) {}
         driver.findElement(By.cssSelector("[data-test-id='agreement']")).click();
+//        try {
+//            Thread.sleep(2000);
+//        } catch(InterruptedException ex) {}
         driver.findElement(By.cssSelector("button.button")).click();
+//        try {
+//            Thread.sleep(2000);
+//        } catch(InterruptedException ex) {}
         String text = driver.findElement(By.cssSelector("[data-test-id='order-success']")).getText();
 
         Assertions.assertEquals("Ваша заявка успешно отправлена! Наш менеджер свяжется с вами в ближайшее время.", text.trim());
+
+//        Thread.sleep(2000);
+
     }
 }
